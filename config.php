@@ -1,5 +1,6 @@
 <?php
 
+define( 'SOMC_VERSION', '0.0.2' );
 define( 'SOMC_PAGES_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'SOMC_PAGES_URL', plugin_dir_url( __FILE__ ) );
 define( 'SOMC_PAGES_SHORTCODE', apply_filters( 'somc_subpages_shortcode_tag', 'somc_subpages' ) );
