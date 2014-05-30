@@ -25,6 +25,9 @@ class SOMC_Subpages_Widget extends WP_Widget {
 	 * @param array $instance An array of settings for this widget instance.
 	 */
 	public function widget( $args, $instance ) {
+		// Enqueue the assets
+		SOMC_Subpages::enqueue_assets();
+
 		// Chip the title in
 		$args['widget_title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Subpages', 'somc_subpages' ) : $instance['title'], $instance, $this->id_base );
 

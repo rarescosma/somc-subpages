@@ -1,6 +1,8 @@
 <?php
 
 add_shortcode( SOMC_PAGES_SHORTCODE, function( $attributes ) {
+	SOMC_Subpages::enqueue_assets();
+
 	$args = shortcode_atts( array(
 		'title' => __( 'Subpages', 'somc_subpages' ),
 		'parent_id' => false

@@ -29,6 +29,7 @@ include SOMC_PAGES_DIR . '/transforms.php';
  * and a method that forms fragment names
  */
 class SOMC_Subpages {
+
 	/**
 	 * Returns a closure that calls the 'page_tree' source
 	 *
@@ -77,6 +78,16 @@ class SOMC_Subpages {
 
 		// Use a fast hash
 		return $prefix . dechex( crc32( $to_hash ) );
+	}
+
+	/**
+	 * Enqueues the behviour and the styles
+	 *
+	 * @return void
+	 */
+	static function enqueue_assets() {
+		wp_enqueue_script( 'somc_pages', SOMC_PAGES_URL . 'assets/behaviour.js', array( 'jquery' ), SOMC_VERSION, true );
+		wp_enqueue_style( 'somc_page', SOMC_PAGES_URL . 'assets/style.css', array(), SOMC_VERSION, 'screen' );
 	}
 }
 
