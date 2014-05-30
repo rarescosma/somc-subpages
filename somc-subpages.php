@@ -12,7 +12,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	die();
 }
 
-include 'debug.php';
+// include 'debug.php';
 
 // Load the RIC performance framework
 include dirname( __FILE__ ) . '/src/ric/bootstrap.php';
