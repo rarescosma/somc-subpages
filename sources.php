@@ -44,7 +44,8 @@ RIC::register_source( 'page_tree', function( $parent_id = false ) {
 	$flat = RIC::transform(
 		RIC::source( 'page_children', $parent_id ),
 		'media:thumbnail',
-		'posts:permalink'
+		'posts:permalink',
+		'posts:truncate_title'
 	);
 
 	return RIC::transform( $flat, 'structure:flat_to_tree', true );

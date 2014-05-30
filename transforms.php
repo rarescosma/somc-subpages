@@ -48,6 +48,29 @@ RIC::register_transform( 'posts:permalink', function( $post ) {
 
 
 /**
+ * Truncate title transform
+ */
+RIC::register_transform( 'posts:truncate_title', function( $post ) {
+	static $num_chars = 20;
+	if ( strlen( $post['post_title'] ) <= $num_chars ) {
+		return $post;
+	}
+
+	// Try not to break in the middle of a word
+	$truncated = substr( $post['post_title'], 0 , 20 );
+	$last_space = strrpos( $truncated, ' ' );
+	if ( false === $last_space ) {
+		// Title begins with a word longer than 20 characters, weird
+		$post['post_title'] = $truncated;
+	} else {
+		$post['post_title'] = substr( $truncated, 0, $last_space ) . '&hellip;';
+	}
+
+	return $post;
+} );
+
+
+/**
  * Takes a flat array of posts and arranges them in a nested array
  * following their child/parent relationships.
  */
