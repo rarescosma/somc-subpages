@@ -1,4 +1,4 @@
-<section class="somc-subpages">
+<section class="somc-wrap">
 	<?php if ( !empty( $title ) ): ?>
 	<h2><?php echo $title; ?></h2>
 	<?php endif; ?>

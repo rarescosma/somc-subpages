@@ -11,8 +11,9 @@ if ( is_wp_error( $tree ) ) { return; }
 
 echo $before_widget;
 echo $before_title . $widget_title . $after_title;
-
-if ( isset( $error ) ): ?>
+?>
+<div class="somc-wrap">
+<?php if ( isset( $error ) ): ?>
 <div class="error">
 	<p><?php echo $error; ?></p>
 </div>
@@ -21,3 +22,4 @@ if ( isset( $error ) ): ?>
 <?php if ( !empty( $tree ) ) { include 'root.php'; } ?>
 
 <?php echo $after_widget; ?>
+</div>
