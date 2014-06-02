@@ -39,16 +39,6 @@ class SOMC_Subpages_Widget extends WP_Widget {
 		RIC::render( 'widget', SOMC_Subpages::subpages_factory( $args ), $fragment );
 	}
 
-	private function get_fragment_name( $args ) {
-		global $wp_the_query;
-
-		// Fast hash the widget arguments
-		$widget_hash = dechex( crc32( json_encode( $args ) . $wp_the_query->query_vars_hash ) );
-
-		// Mix in the query vars hash so we don't serve the same fragment on different pages
-		return 'somc_widget_markup_' . $widget_hash;
-	}
-
 	/**
 	 * Validate and save the widget settings.
 	 *

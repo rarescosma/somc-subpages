@@ -193,7 +193,7 @@ class Events extends Hook {
 	}
 
 	/**
-	 * Creating, editing or deleting an user affets the state.
+	 * Creating, editing or deleting an user affects the state.
 	 *
 	 * @access protected
 	 * @since 0.8.5
@@ -202,7 +202,6 @@ class Events extends Hook {
 	 */
 	protected function proxy_users() {
 		$t = $this;
-
 		$closure = function( $id ) use ( &$t ) {
 			if ( !empty( $id ) && is_numeric( $id ) ) {
 				$t->fire( 'user', $id );
