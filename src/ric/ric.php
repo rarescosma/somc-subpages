@@ -49,11 +49,11 @@ class RIC {
 	 * TODO: error handling
 	 *
 	 * @param  string $name Source handle ('posts')
-	 * @param  array  $args Source arguments
+	 * @param  mixed  $args Source arguments
 	 *
 	 * @return array|WP_Error
 	 */
-	static function source( $name = '', $args = array() ) {
+	static function source( $name = '', $args ) {
 		static $memo;
 
 		if ( empty( $name ) || !array_key_exists( $name, self::$sources ) ) {
@@ -91,9 +91,6 @@ class RIC {
 	 * Transforms will be applied in the supplied order.
 	 *
 	 * @param  array  $items The items to trasform
-	 * @param  string $transform_1 Transform handle
-	 * @param  string $transform_2 Transform handle
-	 * @param  string $transform_3 Transform handle
 	 * ...
 	 *
 	 * @return array|WP_Error
@@ -140,7 +137,7 @@ class RIC {
 	 * Renders a template
 	 *
 	 * @param  string          $view      The desired view, relative to IC_VIEWS_DIR
-	 * @param  array|callable  $context   The context. Use this parameter to pass data
+	 * @param  array|callable  $_context  The context. Use this parameter to pass data
 	 * into the view. You can also pass a callable to defer code execution, in case
 	 * of a cache hit.
 	 * @param  string          $cache_key Optional key for fragment caching.
@@ -149,7 +146,7 @@ class RIC {
 	 *
 	 * @return void
 	 */
-	static function render( $view = '', $_context = array(), $cache_key = false ) {
+	static function render( $view = '', $_context, $cache_key = false ) {
 		if (
 			!empty( $cache_key )
 			&& is_string( $cache_key )

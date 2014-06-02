@@ -35,7 +35,7 @@ class SOMC_Subpages {
 	 *
 	 * @see RIC
 	 *
-	 * @return callable
+	 * @return Closure
 	 */
 	static function subpages_factory( $args = array() ) {
 		/**
