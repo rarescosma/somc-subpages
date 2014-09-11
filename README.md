@@ -1,4 +1,10 @@
-somc-subpages
+semc-subpages
 =============
 
-Provides and widget and a shortcode for displaying children page hierarchies
+Display children page hierarchies of any given WordPress page.
+
+The plugin provides both a widget and a shortcode.
+
+The plugin code follows the source/transform/render paradigm.
+
+Fragment caching is leveraged to boost performance.
