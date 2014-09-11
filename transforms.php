@@ -16,7 +16,7 @@ RIC::register_transform( 'media:thumbnail', function( $post ) {
 	}
 
 	// Let people override the size
-	$size = apply_filters( 'somc_pages_thumbnail_size', 'thumbnail' );
+	$size = apply_filters( 'semc_pages_thumbnail_size', 'thumbnail' );
 
 	$thumb_id = get_post_thumbnail_id( $post['ID'] );
 	if ( false !== $thumb = wp_get_attachment_image_src( $thumb_id, $size ) ) {

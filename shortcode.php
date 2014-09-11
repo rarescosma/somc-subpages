@@ -1,16 +1,16 @@
 <?php
 
-add_shortcode( SOMC_PAGES_SHORTCODE, function( $attributes ) {
-	SOMC_Subpages::enqueue_assets();
+add_shortcode( SEMC_PAGES_SHORTCODE, function( $attributes ) {
+	SEMC_Subpages::enqueue_assets();
 
 	$args = shortcode_atts( array(
-		'title' => __( 'Subpages', 'somc_subpages' ),
+		'title' => __( 'Subpages', 'semc_subpages' ),
 		'parent_id' => false
 	), $attributes );
 
 	RIC::render(
 		'shortcode',
-		SOMC_Subpages::subpages_factory( $args ),
-		SOMC_Subpages::get_fragment_name( 'somc_sp_shortcode_', $args )
+		SEMC_Subpages::subpages_factory( $args ),
+		SEMC_Subpages::get_fragment_name( 'semc_sp_shortcode_', $args )
 	);
 } );

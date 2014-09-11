@@ -23,7 +23,7 @@ class Hook {
 	 * @since  0.7.0
 	 *
 	 * @param mixed $hook The hook name
-	 * @return Hook The current object, for chaining
+	 * @return mixed The result of the add_filter call
 	 */
 	protected function hook( $hook ) {
 

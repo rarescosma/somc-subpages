@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: SOMC Subpages
+Plugin Name: SEMC Subpages
 Description: Provides and widget and a shortcode for displaying children page hierarchies.
 Version: 0.1
-Plugin URI: https://github.com/rarescosma/somc-subpages
+Plugin URI: https://github.com/rarescosma/semc-subpages
 Author: Rares Cosma
 Author URI: https://www.linkedin.com/in/rarescosma
 */
@@ -12,7 +12,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	die();
 }
 
-// include 'debug.php';
+include 'debug.php';
 
 // Load the RIC performance framework
 include dirname( __FILE__ ) . '/src/ric/bootstrap.php';
@@ -21,21 +21,21 @@ include dirname( __FILE__ ) . '/src/ric/bootstrap.php';
 include dirname( __FILE__ ) . '/config.php';
 
 // Load sources & transforms
-include SOMC_PAGES_DIR . '/sources.php';
-include SOMC_PAGES_DIR . '/transforms.php';
+include SEMC_PAGES_DIR . '/sources.php';
+include SEMC_PAGES_DIR . '/transforms.php';
 
 /**
  * Provides a method that returns data sources
  * and a method that forms fragment names
  */
-class SOMC_Subpages {
+class SEMC_Subpages {
 
 	/**
 	 * Returns a closure that calls the 'page_tree' source
 	 *
 	 * @see RIC
 	 *
-	 * @return Closure
+	 * @return callable
 	 */
 	static function subpages_factory( $args = array() ) {
 		/**
@@ -51,7 +51,7 @@ class SOMC_Subpages {
 
 			// No subpages - assign a succint error message
 			if ( empty( $args['tree'] ) ) {
-				$args['error'] = __( 'Sorry, we couldn\'t find any subpages', 'somc_subpages' );
+				$args['error'] = __( 'Sorry, we couldn\'t find any subpages', 'semc_subpages' );
 			}
 
 			return $args;
@@ -67,7 +67,7 @@ class SOMC_Subpages {
 	 *
 	 * @return string
 	 */
-	static function get_fragment_name( $prefix = 'somc_', $args = array() ) {
+	static function get_fragment_name( $prefix = 'semc_', $args = array() ) {
 		$to_hash = json_encode( $args );
 
 		if ( !isset( $args['parent_id'] ) ) {
@@ -86,15 +86,15 @@ class SOMC_Subpages {
 	 * @return void
 	 */
 	static function enqueue_assets() {
-		wp_enqueue_script( 'somc_pages', SOMC_PAGES_URL . 'assets/behaviour.js', array( 'jquery' ), SOMC_VERSION, true );
-		wp_enqueue_style( 'somc_page', SOMC_PAGES_URL . 'assets/style.css', array(), SOMC_VERSION, 'screen' );
+		wp_enqueue_script( 'semc_pages', SEMC_PAGES_URL . 'assets/behaviour.js', array( 'jquery' ), SEMC_VERSION, true );
+		wp_enqueue_style( 'semc_page', SEMC_PAGES_URL . 'assets/style.css', array(), SEMC_VERSION, 'screen' );
 	}
 }
 
 // Include the widget & shortcode files
-include SOMC_PAGES_DIR . '/widget.php';
+include SEMC_PAGES_DIR . '/widget.php';
 add_action( 'widgets_init', function() {
-	register_widget( 'SOMC_Subpages_Widget' );
+	register_widget( 'SEMC_Subpages_Widget' );
 } );
 
-include SOMC_PAGES_DIR . '/shortcode.php';
+include SEMC_PAGES_DIR . '/shortcode.php';

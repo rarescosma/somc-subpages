@@ -1,4 +1,4 @@
-<section class="somc-wrap">
+<section class="semc-wrap">
 	<?php if ( !empty( $title ) ): ?>
 	<h2><?php echo $title; ?></h2>
 	<?php endif; ?>

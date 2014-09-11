@@ -8,7 +8,7 @@ do ($ = jQuery, window, document) ->
   # minified (especially when both are regularly referenced in your plugin).
 
   # Create the defaults once
-  pluginName = "somcSubpages"
+  pluginName = "semcSubpages"
   defaults =
     debug: false
     orderSel: '[data-trigger="order"]'
@@ -81,4 +81,4 @@ do ($ = jQuery, window, document) ->
         $.data @, "plugin_#{pluginName}", new Plugin @, options
 
   $ ->
-    $('.somc-wrap').somcSubpages { debug: true }
+    $('.semc-wrap').semcSubpages { debug: true }

@@ -12,7 +12,7 @@ if ( is_wp_error( $tree ) ) { return; }
 echo $before_widget;
 echo $before_title . $widget_title . $after_title;
 ?>
-<div class="somc-wrap">
+<div class="semc-wrap">
 <?php if ( isset( $error ) ): ?>
 <div class="error">
 	<p><?php echo $error; ?></p>

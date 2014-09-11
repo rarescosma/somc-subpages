@@ -1,7 +1,7 @@
 (function() {
   (function($, window, document) {
     var Plugin, defaults, pluginName;
-    pluginName = "somcSubpages";
+    pluginName = "semcSubpages";
     defaults = {
       debug: false,
       orderSel: '[data-trigger="order"]',
@@ -96,7 +96,7 @@
       });
     };
     return $(function() {
-      return $('.somc-wrap').somcSubpages({
+      return $('.semc-wrap').semcSubpages({
         debug: true
       });
     });
